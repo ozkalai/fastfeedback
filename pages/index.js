@@ -12,8 +12,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Fast Feedback !</h1>
-
+        s<h1 className={styles.title}>Fast Feedback !</h1>
         <p className={styles.description}>
           Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>
@@ -22,7 +21,6 @@ export default function Home() {
         {auth?.user && (
           <button onClick={(e) => auth.signout()}>Sign out</button>
         )}
-
         <div>{auth?.user?.email}</div>
       </main>
 
