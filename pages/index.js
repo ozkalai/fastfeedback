@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const auth = useAuth();
+  console.log(auth);
   return (
     <div className={styles.container}>
       <Head>
@@ -12,16 +13,18 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        s<h1 className={styles.title}>Fast Feedback !</h1>
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <h1 className={styles.title}>Fast Feedback !</h1>
+        {auth.user ? (
+          <div className={styles.description}>
+            Current user: <div>{auth?.user?.email}</div>
+          </div>
+        ) : (
+          ""
+        )}
         <button onClick={(e) => auth.signinWithGithub()}>Sign In</button>
         {auth?.user && (
           <button onClick={(e) => auth.signout()}>Sign out</button>
         )}
-        <div>{auth?.user?.email}</div>
       </main>
 
       <footer className={styles.footer}>
@@ -36,4 +39,5 @@ export default function Home() {
       </footer>
     </div>
   );
+  console.log(auth);
 }
