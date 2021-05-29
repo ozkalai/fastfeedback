@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useAuth } from "@/lib/auth";
 import styles from "@/styles/Home.module.css";
 import { Button, Text, Icon, Flex } from "@chakra-ui/core";
+import EmptyState from "@/components/EmptyState";
 
 export default function Home() {
   const auth = useAuth();
@@ -26,9 +27,10 @@ export default function Home() {
       )}
 
       {auth?.user && (
-        <Button mt={4} size="sm" onClick={(e) => auth.signout()}>
-          Sign out
-        </Button>
+        <EmptyState />
+        // <Button mt={4} size="sm" onClick={(e) => auth.signout()}>
+        //   Sign out
+        // </Button>
       )}
     </Flex>
   );
